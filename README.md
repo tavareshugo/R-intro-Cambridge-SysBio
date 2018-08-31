@@ -1,4 +1,4 @@
-# Introduction to R course for Part III Systems Biology course
+# Introduction to R - Part III Systems Biology
 
 This is a general introduction to R for data analysis. 
 
@@ -7,11 +7,12 @@ to allow you to do data analysis in R, from data manipulation to visualisation.
 We will focus on tabular data, which is general enough to allow you to apply 
 these skills to a wide range of problems. 
 
-This page provides with links to detailed materials for your reference, many of 
+Below, we provide links to detailed materials for your reference, many of 
 which were developed by the [Data Carpentry](https://datacarpentry.org) organisation.
 
-If you have any queries please contact [Hugo Tavares](hugo.tavares@slcu.cam.ac.uk) or 
-[Matt Castle](mdc31@cam.ac.uk).
+If you have any queries please contact Hugo Tavares (<hugo.tavares@slcu.cam.ac.uk>) 
+or Matt Castle (<mdc31@cam.ac.uk>) or [post a new issue](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/issues) 
+on our GitHub repository.
 
 
 ### INT1.23 - 2018-10-02 9.00-13:00

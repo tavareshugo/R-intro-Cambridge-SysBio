@@ -45,4 +45,4 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 
 * **add link to materials and solutions**
 
-
+* [Solutions `tidyverse` version](lesson4_solutions.html)

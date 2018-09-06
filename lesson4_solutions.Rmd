@@ -1,0 +1,257 @@
+---
+title: "Solutions for Lesson 4"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    toc_depth: 3
+    highlight: pygments
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Function to read and tidy chick data
+read_chick_data <- function(file){
+  
+  # Read the data in the file - starts at line 3
+  chick_data <- read_delim(file, skip = 2, delim = " ", col_types = "ii")
+  
+  # Extract the diet from the file - first line of the file
+  # and remove the word "Diet:" from it
+  chick_diet <- read_lines(file, n_max = 1) %>% 
+    str_remove("Diet:")
+
+  # Get the chick ID - from the file name
+  chick_id <- basename(file) %>% 
+    str_remove(".txt") %>% str_remove("Chick_")
+  
+  # Add diet and chick ID to our table
+  chick_data <- chick_data %>% 
+    mutate(diet = chick_diet, id = chick_id)
+  
+  # Return the tidy chick_data
+  return(chick_data)
+}
+```
+
+These solutions use functions from the `tidyverse` meta-package.
+
+```{r, message = FALSE}
+# load the package
+library(tidyverse)
+```
+
+
+## Understanding our data
+
+If we open one of our files in a text editor, this is how they look like:
+
+```{r, echo=FALSE}
+cat(read_lines("data/chick_data/Chick_1.txt"), sep = "\n")
+```
+
+There are 3 pieces of information that we should bring together into a single 
+tidy _data frame_:
+
+* information about the diet applied - first line of the file 
+* the weights measured on each day - third line of the file onwards, formated as a 
+space-delimited table
+* the ID of the chick - this is contained in the file name
+
+That is, we should aim for something like this:
+
+```{r, echo = FALSE}
+read_chick_data("data/chick_data/Chick_1.txt") %>% knitr::kable()
+```
+
+
+## Building the steps to read and tidy our data
+
+First do the task for a single file
+
+```{r}
+# Can read the table starting from line 3
+read_delim("data/chick_data/Chick_1.txt", 
+           delim  = " ", skip = 3)
+```
+
+etc... detail the other steps, which I've put together into a function below...
+
+
+## Putting it all together into a function
+
+We can wrap these steps into our own custom function. This will be convenient 
+when we want to apply this function to the entire list of files.
+
+
+```{r}
+read_chick_data <- function(file){
+  
+  # Read the data in the file - starts at line 3
+  chick_data <- read_delim(file, skip = 2, delim = " ", col_types = "ii")
+  
+  # Extract the diet from the file - first line of the file
+  # and remove the word "Diet:" from it
+  chick_diet <- read_lines(file, n_max = 1) %>% 
+    str_remove("Diet:")
+
+  # Get the chick ID - from the file name
+  chick_id <- basename(file) %>% 
+    str_remove(".txt") %>% str_remove("Chick_")
+  
+  # Add diet and chick ID to our table
+  chick_data <- chick_data %>% 
+    mutate(diet = chick_diet, id = chick_id)
+  
+  # Return the tidy chick_data
+  return(chick_data)
+}
+```
+
+Let's test the function:
+
+```{r}
+read_chick_data("data/chick_data/Chick_1.txt")
+```
+
+
+
+## Apply function to list of files
+
+We can list the files in a directory:
+
+```{r}
+file_list <- list.files("data/chick_data/", pattern = ".txt",
+                        full.names = TRUE)
+head(file_list)
+```
+
+Then, we can apply a function to a list of values using the `map` function. 
+
+```{r, eval=FALSE}
+map(file_list, read_chick_data)
+```
+
+The `map()` function returns a list. This is sometimes convenient, but in our case
+we want all of these tables to be bound together into a single `data.frame`. 
+
+There are several variants of `map()`, which are designed for when we want the 
+output to be of a defined type. In this case, we can use `map_df()`, which returns 
+a `data.frame` instead of a `list`:
+
+```{r}
+# Apply our function to all of the files, and return a data.frame
+chicks <- map_df(file_list, read_chick_data)
+
+head(chicks)
+```
+
+
+## Analysing our data
+
+The rest of the exercise is now applying what we've already learned in previous 
+lessons:
+
+#### Question 3
+
+```{r}
+# How many chicks survived the whole experiment?
+## We can count the number of observations on each day
+chicks %>% 
+  count(Day)
+```
+
+Get IDs of surviving IDs
+
+```{r}
+# Get IDs of individuals that survived up to day 21
+surviving_ids <- chicks %>% 
+  group_by(id) %>% 
+  filter(Day == 21) %>% 
+  pull(id)  # this extracts the "id" column from the table and returns a vector
+
+surviving_ids
+```
+
+Filter original table
+
+```{r}
+# Filter the table using this variable
+my_chicks_survive <- chicks %>% 
+  filter(id %in% surviving_ids)
+```
+
+
+#### Question 4a
+
+```{r}
+my_chicks_survive %>% 
+  group_by(id) %>% 
+  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
+  summarise(mean_weight_dif = mean(weight_dif))
+```
+
+
+#### Question 4b
+
+```{r}
+my_chicks_survive %>% 
+  group_by(id, diet) %>% 
+  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
+  group_by(diet) %>% 
+  summarise(mean_weight_dif = mean(weight_dif))
+```
+
+#### Question 4c
+
+```{r}
+my_chicks_survive %>% 
+  group_by(id, diet) %>% 
+  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
+  ggplot(aes(diet, weight_dif)) + geom_boxplot()
+```
+
+
+#### Question 4d
+
+```{r}
+my_chicks_survive %>% 
+  filter(Weight > 130) %>% 
+  group_by(id) %>% 
+  filter(Day == min(Day)) %>% 
+  ggplot(aes(Day)) + geom_bar()
+```
+
+
+#### Question 4e
+
+```{r}
+ggplot(chicks, aes(Day, Weight, group = id, colour = diet)) +
+  geom_line()
+```
+
+
+#### Question 4f
+
+```{r}
+chicks %>% 
+  group_by(Day, diet) %>% 
+  summarise(mean_weight = mean(Weight)) %>% 
+  ggplot(aes(Day, mean_weight, colour = diet)) +
+  geom_line()
+```
+
+Or:
+
+```{r}
+ggplot(chicks, aes(Day, Weight)) +
+  geom_line(aes(group = id), colour = "grey") +
+  geom_line(aes(colour = diet), stat = "summary", fun.y = "mean", size = 1)
+```
+
+
+#### Question 4g
+
+...
+

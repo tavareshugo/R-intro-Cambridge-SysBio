@@ -14,10 +14,27 @@ If you have any queries please contact Hugo Tavares (<hugo.tavares@slcu.cam.ac.u
 or Matt Castle (<mdc31@cam.ac.uk>) or [post a new issue](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/issues) 
 on our GitHub repository.
 
+----
+
+**Setup**
+
+All necessary software and data will be available on the training machines at 
+the Bioinformatics Training Room 
+([Craik-Marshall Building](https://maps.google.co.uk/maps?hl=en-GB&q=Craik-Marshall+Building,+Downing+Site,+Cambridge&source=calendar)).
+
+However, you are welcome to use your own laptop, in which case you need to:
+
+* Download and install R ([here](https://cran.r-project.org/))
+* Download and install RStudio ([here](https://www.rstudio.com/products/rstudio/download/#download))
+* Install the R package `tidyverse` (open RStudio and go to `Tools > Install Packages`)
+* Download the data for the lesson ([here](https://ndownloader.figshare.com/files/2292169))
+
+----
+
 
 ### INT1.23 - 2018-10-02 9.00-13:00
 
-This lesson will cover the very basics of using R with RStudio.
+This lesson will cover the very basics of using R with RStudio. 
 
 * [Introduction to RStudio IDE](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html)
 * [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)

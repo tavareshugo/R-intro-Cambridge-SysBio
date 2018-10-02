@@ -71,6 +71,6 @@ This lesson covers data visualisation using the `ggplot2` package.
 This lesson will be focusing on an exercise that allows to apply the skills learned 
 in the previous lessons, as well as a few new tricks to automate tasks in R.
 
-* **add link to materials and solutions**
+* **add link to materials**
 
-* [Solutions `tidyverse` version](lesson4_solutions.html)
+(Solutions will be added at the end.)

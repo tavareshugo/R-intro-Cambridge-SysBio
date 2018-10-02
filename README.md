@@ -40,6 +40,13 @@ This lesson will cover the very basics of using R with RStudio.
 * [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
 * [Starting with data](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
 
+To download data for this lesson from R:
+
+```
+download.file("https://ndownloader.figshare.com/files/2292169",
+              "data/portal_data_joined.csv")
+```
+
 
 ### INT1.26 - 2018-10-03 9:00-12:00
 

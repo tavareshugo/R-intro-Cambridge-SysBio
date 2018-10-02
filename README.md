@@ -55,6 +55,7 @@ tabular data using the `dplyr` package.
 
 * [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
 
+[Syntax comparisons between "dplyr" and "base R"](https://rawgit.com/tavareshugo/data_carpentry_extras/master/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html)
 
 ### INT1.30 - 2018-10-08 9.00-13:30 
 

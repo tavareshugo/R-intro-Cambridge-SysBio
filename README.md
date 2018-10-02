@@ -36,6 +36,8 @@ However, you are welcome to use your own laptop, in which case you need to:
 
 This lesson will cover the very basics of using R with RStudio. 
 
+Detailed reference materials:
+
 * [Introduction to RStudio IDE](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html)
 * [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
 * [Starting with data](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
@@ -47,6 +49,7 @@ download.file("https://ndownloader.figshare.com/files/2292169",
               "data/portal_data_joined.csv")
 ```
 
+[Short summary of base R intro](https://rawgit.com/tavareshugo/data_carpentry_extras/master/recap_intro_r/recap_intro_r.html)
 
 ### INT1.26 - 2018-10-03 9:00-12:00
 

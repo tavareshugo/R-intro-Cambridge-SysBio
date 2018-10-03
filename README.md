@@ -49,7 +49,6 @@ download.file("https://ndownloader.figshare.com/files/2292169",
               "data/portal_data_joined.csv")
 ```
 
-[Short summary of base R intro](https://rawgit.com/tavareshugo/data_carpentry_extras/master/recap_intro_r/recap_intro_r.html)
 
 ### INT1.26 - 2018-10-03 9:00-12:00
 
@@ -58,7 +57,7 @@ tabular data using the `dplyr` package.
 
 * [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
 
-[Syntax comparisons between "dplyr" and "base R"](https://rawgit.com/tavareshugo/data_carpentry_extras/master/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html)
+[exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
 
 ### INT1.30 - 2018-10-08 9.00-13:30 
 
@@ -74,3 +73,18 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 * **add link to materials**
 
 (Solutions will be added at the end.)
+
+
+## Further resources
+
+* [Summary of R basics](https://rawgit.com/tavareshugo/data_carpentry_extras/master/recap_intro_r/recap_intro_r.html)
+* [Summary of dplyr functions and their equivalent in base R](https://rawgit.com/tavareshugo/data_carpentry_extras/master/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html) (will also add `data.table` equivalents at some point)
+* [Cheatsheets for dplyr, ggplot2 and more](https://www.rstudio.com/resources/cheatsheets/)
+
+Extra materials/books:
+
+* [R for Data Science](http://r4ds.had.co.nz/) - a nice follow-up from this course focusing on "tidyverse" packages
+* [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - an introductory book about machine learning using R
+    * Also see [this course material](https://lgatto.github.io/IntroMachineLearningWithR/) for a practical introduction to this topic
+* [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) (not freely available) - an introduction book about statistical modelling using R
+* The ["Think X"](https://greenteapress.com/wp/) series of books, which focus on python, but are freely available

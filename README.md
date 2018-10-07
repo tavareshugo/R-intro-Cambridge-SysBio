@@ -72,7 +72,10 @@ manipulation and plotting.
 
 [exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
 
-Optional: See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html) 
+Optional: 
+
+* [More exercises](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/extra.html) using `dplyr` and `ggplot2`.
+* See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html) 
 integrating the data manipulation and visualisation concepts learned so far, to a 
 transcriptomic dataset. 
 

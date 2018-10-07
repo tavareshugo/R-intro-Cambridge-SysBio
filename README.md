@@ -53,17 +53,28 @@ download.file("https://ndownloader.figshare.com/files/2292169",
 ### INT1.26 - 2018-10-03 9:00-12:00
 
 This lesson will cover some functions to effectively manipulate and summarise 
-tabular data using the `dplyr` package.
+tabular data using the `dplyr` package and we will start to learn how to 
+visualise data with the `ggplot2` package.
 
 * [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
+* [Data visualisation with `ggplot2`](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)
 
 [exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
 
 ### INT1.30 - 2018-10-08 9.00-13:30 
 
-This lesson covers data visualisation using the `ggplot2` package.
+This lesson will continue from the previous lesson, covering further data 
+manipulation and plotting.
 
-* [Data visualisation with `ggplot2`](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)
+* [Factors](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#factors)
+* [Reshaping data](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#reshaping_with_gather_and_spread)
+* [Combining tables](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/4.summarise-and-combine.nb.html#joining)
+
+[exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
+
+Optional: See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html) 
+integrating the data manipulation and visualisation concepts learned so far, to a 
+transcriptomic dataset. 
 
 ### INT1.33 - 2018-10-09 9:00-13:30
 

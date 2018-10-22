@@ -77,8 +77,7 @@ Optional:
 * [More exercises](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/extra.html) using `dplyr` and `ggplot2`. You will need to install the `gapminder` data package 
 (`install.packages("gapminder")`). Once installed, run the following command: 
 `data("gapminder", package = "gapminder")` and a data.frame should appear on your environment.
-* See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html)  
-integrating the data manipulation and visualisation concepts learned so far, to a 
+* See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html) integrating the data manipulation and visualisation concepts learned so far, to a 
 transcriptomic dataset. 
 
 ### INT1.33 - 2018-10-09 9:00-13:30
@@ -86,9 +85,9 @@ transcriptomic dataset.
 This lesson will be focusing on an exercise that allows to apply the skills learned 
 in the previous lessons, as well as a few new tricks to automate tasks in R.
 
-* **add link to materials**
+* [Solutions using `tidyverse` functions](lesson4_solutions.html)
 
-(Solutions will be added at the end.)
+
 
 
 ## Further resources

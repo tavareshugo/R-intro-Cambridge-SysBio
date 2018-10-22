@@ -1,5 +1,5 @@
 ---
-title: "Solutions for Lesson 4"
+title: "Solutions for Lesson 4 - tidyverse version"
 output:
   html_document:
     toc: yes
@@ -35,13 +35,43 @@ read_chick_data <- function(file){
 }
 ```
 
-These solutions use functions from the `tidyverse` meta-package.
+We were given 50 text files, each containing data for the weights of chicks under 
+different diets. The format of each text file is the same:
+
+* The name of the file gives the chick ID
+* The first line in the file givees the diet ID
+* Following lines contain data in tabular format with the first column giving 
+the days from birth and the second column the weight of the chick.
+
+We were asked to answer several questions from these data. But before we can 
+answer them, we need to parse these files and combine them into a tidy tabular 
+format. 
+
+There are many ways to solve this exercise. Here, we show a solution using several 
+functions from the `tidyverse` meta-package.
 
 ```{r, message = FALSE}
 # load the package
 library(tidyverse)
 ```
 
+
+## Prelude
+
+For any problem where we need to repeat the same task several times, it helps to 
+break down the problem into parts. We can write down what the different steps 
+are using words and not worrying about the code.
+
+Here's an example for our problem of parsing and combining the data files:
+
+* For each file make a table with 4 columns: `chick_id`, `diet`, `day`, `weight`
+    * store the file name, which contains the chick ID
+    * extract the first line, which contains the diet ID
+    * extract lines 3 onwards, which contain the day and weight
+* Repeat the steps above for all files
+* Combine all tables together into a single table
+
+Now that we've broken our problem into parts, let's tackle them in turn.
 
 ## Understanding our data
 
@@ -68,28 +98,89 @@ read_chick_data("data/chick_data/Chick_1.txt") %>% knitr::kable()
 
 ## Building the steps to read and tidy our data
 
-First do the task for a single file
+We start by focusing on a single file, and then generalise across all files.
 
-```{r}
+If you look at the help of `?read_delim`, you will notice that these `read_*` functions 
+have an option to skip some of the lines of the file. This is very convenient, 
+as it allows us to easily read lines 3 onwards, which contain the day and respective 
+weight for our chick:
+
+```{r, message=FALSE}
 # Can read the table starting from line 3
 read_delim("data/chick_data/Chick_1.txt", 
-           delim  = " ", skip = 3)
+           delim  = " ", skip = 2)
 ```
 
-etc... detail the other steps, which I've put together into a function below...
+So this solves one of our steps! (note that base R functions such as `read.table()` 
+also have an option to skip lines of a file before reading it in)
+
+Let's now turn into reading the first line of the file, which contains the 
+diet identifier. Again, if you look at the help of `read_*` functions, you will 
+notice there is an option `n_max`, which determines how many lines of the file 
+we want to read in (the default is to read all lines). We can therefore use this 
+option to read the first line of the file only.
+
+We will use a function called `read_lines()`, which simply reads the lines of a 
+file and stores them into a vector. This function is not often used, but can 
+be useful when parsing data.
+
+```{r}
+# Read the first line of the file
+read_lines("data/chick_data/Chick_1.txt", n_max = 1)
+```
+
+Because we are reading the first line of the file only, the output is a vector 
+of length 1. For our final dataset, we don't really need to keep the string "Diet:"
+because we will place these values in a column. Therefore, it is useful to remove 
+that string from our value. We will use the function `str_remove()`, which 
+we can pipe from the previous line of code:
+
+```{r}
+# Read first line and remove "Diet:" string
+read_lines("data/chick_data/Chick_1.txt", n_max = 1) %>% 
+  str_remove("Diet:")
+```
+
+And that's another problem solved!
+
+Finally, we want to extract the chick ID from a file name. So far we've been 
+looking at a single file, but eventually we will create a list of file names 
+too  apply these steps to. For now, let's manually type the file name of the 
+first file we've been experimenting on:
+
+```{r}
+"data/chick_data/Chick_1.txt"
+```
+
+From this file name, we want to extract the file name only (without the directory), 
+which we can do using the `basename()` function:
+
+```{r}
+"data/chick_data/Chick_1.txt" %>% basename()
+```
+
+Then, we want to remove the string "Chick_" and ".txt" from it, which we've already 
+seen can be done with `str_remove()`:
+
+```{r}
+"data/chick_data/Chick_1.txt" %>% basename() %>% 
+  str_remove("Chick_") %>% str_remove(".txt")
+```
+
+And that's it!
 
 
 ## Putting it all together into a function
 
-We can wrap these steps into our own custom function. This will be convenient 
+We can wrap all these steps into our own custom function. This will be convenient 
 when we want to apply this function to the entire list of files.
-
 
 ```{r}
 read_chick_data <- function(file){
   
   # Read the data in the file - starts at line 3
-  chick_data <- read_delim(file, skip = 2, delim = " ", col_types = "ii")
+  ## explicitly specify that the columns are integer ("i") and numeric ("n")
+  chick_data <- read_delim(file, skip = 2, delim = " ", col_types = "in")
   
   # Extract the diet from the file - first line of the file
   # and remove the word "Diet:" from it
@@ -119,7 +210,7 @@ read_chick_data("data/chick_data/Chick_1.txt")
 
 ## Apply function to list of files
 
-We can list the files in a directory:
+First let's create a list of data files in our directory:
 
 ```{r}
 file_list <- list.files("data/chick_data/", pattern = ".txt",
@@ -127,18 +218,46 @@ file_list <- list.files("data/chick_data/", pattern = ".txt",
 head(file_list)
 ```
 
-Then, we can apply a function to a list of values using the `map` function. 
+Then, we can apply a function to a list of values using the `map()` function (in 
+base R there's the `lapply()` function). 
 
 ```{r, eval=FALSE}
-map(file_list, read_chick_data)
+chicks <- map(file_list, read_chick_data)
 ```
 
-The `map()` function returns a list. This is sometimes convenient, but in our case
+The result is a list object, which contains 50 data.frames.  
+
+You can think of `map()`/`lapply()` as encapsulated _for loops_. In this case, 
+it would be like writting:
+
+```{r, eval=FALSE}
+chicks <- list()
+for(i in seq_along(file_list)){
+  chicks[[i]] <- read_chick_data(file_list[i])
+}
+rm(i)
+```
+
+The difference is that these functions do not clutter your environment with intermediate 
+variables (in this case, the variable `i` was created by the for loop, but no 
+such variable is created by the `map()` function). It is also a much more compact 
+syntax, you don't need to manually create the object that will store the results 
+of the loop (in this case we have to create an empty list first). 
+And finally, these functions can sometimes be faster than standard _for loops_. 
+
+As we saw, the `map()` function returns a list. This is sometimes convenient, but in our case
 we want all of these tables to be bound together into a single `data.frame`. 
 
-There are several variants of `map()`, which are designed for when we want the 
-output to be of a defined type. In this case, we can use `map_df()`, which returns 
-a `data.frame` instead of a `list`:
+We can "bind" those tables using the `bind_rows()` function:
+
+```{r, eval=FALSE}
+chicks <- bind_rows(chicks)
+```
+
+Alternatively, it's worth knowing that there are several variants of `map()`, 
+which are designed for when we want the output to be of a defined type. 
+In this case, we could use `map_dfr()`, which returns a `data.frame` bound by rows, 
+instead of a `list`:
 
 ```{r}
 # Apply our function to all of the files, and return a data.frame
@@ -147,11 +266,14 @@ chicks <- map_df(file_list, read_chick_data)
 head(chicks)
 ```
 
+Learn more about `map()` and its variants from the 
+[iteration chapter in R for Data Science](http://r4ds.had.co.nz/iteration.html)
+
 
 ## Analysing our data
 
 The rest of the exercise is now applying what we've already learned in previous 
-lessons:
+lessons using `dplyr` functions.
 
 #### Question 3
 
@@ -186,10 +308,18 @@ my_chicks_survive <- chicks %>%
 #### Question 4a
 
 ```{r}
-my_chicks_survive %>% 
+# Calculate the weight at day 21 minus the weight at day 0
+wgt_dif <- my_chicks_survive %>% 
   group_by(id) %>% 
-  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
-  summarise(mean_weight_dif = mean(weight_dif))
+  summarise(weight_dif = Weight[Day == 21] - Weight[Day == 0])
+
+head(wgt_dif)
+```
+
+Calculate the mean of the `weight_dif` column:
+
+```{r}
+mean(wgt_dif$weight_dif)
 ```
 
 
@@ -228,7 +358,8 @@ my_chicks_survive %>%
 
 ```{r}
 ggplot(chicks, aes(Day, Weight, group = id, colour = diet)) +
-  geom_line()
+  geom_line() +
+  scale_colour_viridis_d() # colour-blind safe palette
 ```
 
 
@@ -239,7 +370,8 @@ chicks %>%
   group_by(Day, diet) %>% 
   summarise(mean_weight = mean(Weight)) %>% 
   ggplot(aes(Day, mean_weight, colour = diet)) +
-  geom_line()
+  geom_line() +
+  scale_colour_viridis_d()
 ```
 
 Or:
@@ -247,11 +379,13 @@ Or:
 ```{r}
 ggplot(chicks, aes(Day, Weight)) +
   geom_line(aes(group = id), colour = "grey") +
-  geom_line(aes(colour = diet), stat = "summary", fun.y = "mean", size = 1)
+  geom_line(aes(colour = diet), stat = "summary", fun.y = "mean", size = 1) +
+  scale_colour_viridis_d()
 ```
 
 
 #### Question 4g
 
 ...
-
+to be added
+...

@@ -275,7 +275,7 @@ Learn more about `map()` and its variants from the
 The rest of the exercise is now applying what we've already learned in previous 
 lessons using `dplyr` functions.
 
-#### Question 3
+#### Question 2
 
 ```{r}
 # How many chicks survived the whole experiment?
@@ -305,7 +305,7 @@ my_chicks_survive <- chicks %>%
 ```
 
 
-#### Question 4a
+#### Question 3a
 
 ```{r}
 # Calculate the weight at day 21 minus the weight at day 0
@@ -323,38 +323,49 @@ mean(wgt_dif$weight_dif)
 ```
 
 
-#### Question 4b
+#### Question 3b
 
 ```{r}
+
 my_chicks_survive %>% 
+  # for each chick on each diet
   group_by(id, diet) %>% 
-  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
+  # calculate increase in weight (between day 0 and day 21)
+  summarise(weight_dif = Weight[Day == 21] - Weight[Day == 0]) %>% 
+  # then for each diet
   group_by(diet) %>% 
+  # calculate the mean increase in weight across these chicks
   summarise(mean_weight_dif = mean(weight_dif))
 ```
 
-#### Question 4c
+#### Question 3c
+
+Recycling the code above, but piping it directly to a `ggplot2` boxplot:
 
 ```{r}
 my_chicks_survive %>% 
   group_by(id, diet) %>% 
-  summarise(weight_dif = Weight[Day == 10] - Weight[Day == 0]) %>% 
+  summarise(weight_dif = Weight[Day == 21] - Weight[Day == 0]) %>% 
   ggplot(aes(diet, weight_dif)) + geom_boxplot()
 ```
 
 
-#### Question 4d
+#### Question 3d
 
 ```{r}
 my_chicks_survive %>% 
+  # First retain only chicks that have more than 130g of weight
   filter(Weight > 130) %>% 
+  # Then for each chick ID
   group_by(id) %>% 
+  # retain the row that corresponds to the first day this is weight is reached
   filter(Day == min(Day)) %>% 
+  # and plot it (geom_bar automatically does counts for us)
   ggplot(aes(Day)) + geom_bar()
 ```
 
 
-#### Question 4e
+#### Question 3e
 
 ```{r}
 ggplot(chicks, aes(Day, Weight, group = id, colour = diet)) +
@@ -363,18 +374,22 @@ ggplot(chicks, aes(Day, Weight, group = id, colour = diet)) +
 ```
 
 
-#### Question 4f
+#### Question 3f
 
 ```{r}
 chicks %>% 
+  # For each Day and diet
   group_by(Day, diet) %>% 
+  # Calculate the mean weight
   summarise(mean_weight = mean(Weight)) %>% 
+  # and plot it
   ggplot(aes(Day, mean_weight, colour = diet)) +
   geom_line() +
   scale_colour_viridis_d()
 ```
 
-Or:
+Or you can summarise data from within `ggplot2` functions directly. This is very 
+useful if you want to show both summarised and original data, such as shown here:
 
 ```{r}
 ggplot(chicks, aes(Day, Weight)) +
@@ -384,8 +399,58 @@ ggplot(chicks, aes(Day, Weight)) +
 ```
 
 
-#### Question 4g
+#### Question 3g
 
-...
-to be added
-...
+Let's first create a table of average weight per day (that will address the 
+first two points in the question):
+
+```{r}
+avg_wgts <- my_chicks_survive %>% 
+  group_by(Day) %>% 
+  summarise(mean_wgt = mean(Weight)) %>% 
+  ungroup()
+
+head(avg_wgts)
+```
+
+Then let's create a table of average weight per day and per diet:
+
+```{r}
+avg_wgts_diet <- my_chicks_survive %>% 
+  group_by(Day, diet) %>% 
+  summarise(mean_wgt_diet = mean(Weight)) %>% 
+  ungroup()
+
+head(avg_wgts_diet)
+```
+
+Now, let's join these two tables together, using the "Day" column as a reference:
+
+```{r}
+avg_wgts <- full_join(avg_wgts, avg_wgts_diet, by = "Day")
+
+head(avg_wgts)
+```
+
+So now we can calculate the mean weight per diet as a percentage of the overal 
+mean weight across diets:
+
+```{r}
+avg_wgts <- avg_wgts %>% 
+  mutate(pct_wgt_diet = mean_wgt_diet/mean_wgt*100)
+
+head(avg_wgts)
+```
+
+Finally, we need to _reshape_ our table so that each diet has its own column:
+
+```{r}
+avg_wgts %>% 
+  # Add a prefix "diet" for more friendly column names after spreading
+  mutate(diet = paste0("diet", diet)) %>% 
+  # remove this column which we do not need in the output
+  select(-mean_wgt_diet) %>% 
+  # spread the columns
+  spread(diet, pct_wgt_diet)
+```
+

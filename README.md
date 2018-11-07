@@ -85,6 +85,8 @@ transcriptomic dataset.
 This lesson will be focusing on an exercise that allows to apply the skills learned 
 in the previous lessons, as well as a few new tricks to automate tasks in R.
 
+* [Exercise PDF](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/blob/master/lesson4_exercise.pdf)
+    * [download exercise data (ZIP file)](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/raw/master/chick_data.zip)
 * [Solutions using `tidyverse` functions](lesson4_solutions.html)
 
 

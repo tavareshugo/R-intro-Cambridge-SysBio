@@ -41,6 +41,7 @@ Detailed reference materials:
 * [Introduction to RStudio IDE](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html)
 * [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
 * [Starting with data](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
+* [Data visualisation using `ggplot2`](https://tavareshugo.github.io/data_carpentry_extras/ggplot2_prelude/intro_ggplot2.html)
 
 [exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
 
@@ -55,40 +56,51 @@ download.file("https://ndownloader.figshare.com/files/2292169",
 ### INT1.26
 
 This lesson will cover some functions to effectively manipulate and summarise 
-tabular data using the `dplyr` package and we will start to learn how to 
-visualise data with the `ggplot2` package.
+tabular data using the `dplyr` package.
 
-* [Data visualisation using `ggplot2`](https://tavareshugo.github.io/data_carpentry_extras/ggplot2_prelude/intro_ggplot2.html) (part I)
 * [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
+* [Facetting in `ggplot2`]()
+* [Factors](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#factors)
+
 
 [exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
+
+[(optional) More exercises](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/extra.html) using `dplyr` and `ggplot2`. You will need to install the `gapminder` data package 
+(`install.packages("gapminder")`). Once installed, run the following command: 
+`data("gapminder", package = "gapminder")` and a data.frame should appear on your environment.
 
 
 ### INT1.30
 
-This lesson will continue from the previous lesson, covering further data 
-manipulation and plotting.
+to do...
 
-* [Factors](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#factors)
+<!--
+In this session we will apply the concepts learned so far to a worked example of 
+an exploratory data analysis of transcriptomic data.
+
+* [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
+
+[exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
+
+In the lesson we will cover some new data manipulation tricks, which you can learn more about from here:
+
 * [Reshaping data](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#reshaping_with_gather_and_spread)
 * [Combining tables](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/4.summarise-and-combine.nb.html#joining)
-
-[exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
-
-Optional: 
-
-* [More exercises](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/extra.html) using `dplyr` and `ggplot2`. You will need to install the `gapminder` data package 
-(`install.packages("gapminder")`). Once installed, run the following command: 
-`data("gapminder", package = "gapminder")` and a data.frame should appear on your environment.
-* See this [guided example](https://rawgit.com/tavareshugo/data_carpentry_extras/master/rnaseq_visualisation/rnaseq_visualisation.html) integrating the data manipulation and visualisation concepts learned so far, to a 
-transcriptomic dataset. 
-
+-->
 
 ### INT1.33
 
+to do...
 
-... to do ...
+<!--
+We will continue from the previous lesson, covering some methods for analysis of multi-dimensional data:
 
+* [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
+
+[exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
+-->
+
+<!--
 - Detail object types and how they relate to each other. See: http://adv-r.had.co.nz/Data-structures.html and https://r4ds.had.co.nz/vectors.html
     - atomic vector (aka vector), list (recursive vector), matrix (vector with 2 dims), data.frame (list of equal-length vectors), array (vector with n dims) - and how they relate to each other. 
     - could give example of `lm()` output being a list?
@@ -103,6 +115,7 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 * [Exercise PDF](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/blob/master/lesson4_exercise.pdf)
     * [download exercise data (ZIP file)](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/raw/master/chick_data.zip)
 * [Solutions using `tidyverse` functions](lesson4_solutions.html)
+-->
 
 ----
 

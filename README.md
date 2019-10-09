@@ -58,8 +58,8 @@ download.file("https://ndownloader.figshare.com/files/2292169",
 This lesson will cover some functions to effectively manipulate and summarise 
 tabular data using the `dplyr` package.
 
+* [Facetting in `ggplot2`](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html#faceting)
 * [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
-* [Facetting in `ggplot2`]()
 * [Factors](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#factors)
 
 

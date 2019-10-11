@@ -72,11 +72,8 @@ tabular data using the `dplyr` package.
 
 ### INT1.30
 
-to do...
-
-<!--
 In this session we will apply the concepts learned so far to a worked example of 
-an exploratory data analysis of transcriptomic data.
+doing exploratory data analysis of transcriptomic data.
 
 * [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
 
@@ -86,19 +83,39 @@ In the lesson we will cover some new data manipulation tricks, which you can lea
 
 * [Reshaping data](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#reshaping_with_gather_and_spread)
 * [Combining tables](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/4.summarise-and-combine.nb.html#joining)
--->
+
+If you are using your own computer, you can access the data by running the following code from within R.
+Make sure you first create a directory for this lesson, e.g. "RNAseq" and then create and R-project inside it (from RStudio: `File` > `New Project...`). This is to ensure your working directory is setup correctly.
+
+```r
+# Create a "data" directory
+dir.create("data")
+
+# Download the data (using a for loop to automate this step)
+for(i in c("counts_raw.csv", "counts_transformed.csv", "sample_info.csv", "test_result.csv")){
+  download.file(
+    url = paste0("https://github.com/tavareshugo/data-carpentry-rnaseq/blob/master/data/", i, "?raw=true"),
+    destfile = paste0("data/", i)
+  )
+}
+```
+
+You will also need a few extra packages, which you can install with the following commands:
+
+```r
+install.packages(c("corrplot", "ggfortify", "BiocManager"))
+BiocManager::install("ComplexHeatmap")
+```
+
 
 ### INT1.33
 
-to do...
-
-<!--
 We will continue from the previous lesson, covering some methods for analysis of multi-dimensional data:
 
 * [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
 
 [exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
--->
+
 
 <!--
 - Detail object types and how they relate to each other. See: http://adv-r.had.co.nz/Data-structures.html and https://r4ds.had.co.nz/vectors.html

@@ -26,8 +26,8 @@ However, you are welcome to use your own laptop, in which case you need to:
 
 * Download and install R ([here](https://cran.r-project.org/))
 * Download and install RStudio ([here](https://www.rstudio.com/products/rstudio/download/#download))
-* Install the R package `tidyverse` (open RStudio and go to `Tools > Install Packages`)
-* Download the data for the lesson ([here](https://ndownloader.figshare.com/files/2292169))
+* Open RStudio and go to `Tools > Install Packages` and paste this into the "Packages" field: `tidyverse,naniar,broom,corrplot,patchwork,ggfortify` 
+* Download the data for the lesson ([here - FIXME]())
 
 ----
 
@@ -38,19 +38,10 @@ This lesson will cover the basics of using R with RStudio.
 
 Detailed reference materials:
 
-* [Introduction to RStudio IDE](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html)
-* [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
-* [Starting with data](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
-* [Data visualisation using `ggplot2`](https://tavareshugo.github.io/data_carpentry_extras/ggplot2_prelude/intro_ggplot2.html)
-
-[exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
-
-To download data for this lesson from R:
-
-```
-download.file("https://ndownloader.figshare.com/files/2292169",
-              "data/portal_data_joined.csv")
-```
+* [Introduction to R and RStudio](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/00-starting_your_project/index.html)
+* [Basic objects and data types](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/01-objects_functions_vectors/index.html)
+* [Working with Tabular Data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/02-data_frames/index.html)
+* [Data visualisation with `ggplot2`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/03-data_vis_ggplot2/index.html)
 
 
 ### INT1.26
@@ -58,16 +49,10 @@ download.file("https://ndownloader.figshare.com/files/2292169",
 This lesson will cover some functions to effectively manipulate and summarise 
 tabular data using the `dplyr` package.
 
-* [Facetting in `ggplot2`](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html#faceting)
-* [Data manipulation with `dplyr`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
-* [Factors](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html#factors)
-
-
-[exercises](https://rawgit.com/tavareshugo/data_carpentry_extras/master/slides_with_exercises/exercises.html)
-
-[(optional) More exercises](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/extra.html) using `dplyr` and `ggplot2`. You will need to install the `gapminder` data package 
-(`install.packages("gapminder")`). Once installed, run the following command: 
-`data("gapminder", package = "gapminder")` and a data.frame should appear on your environment.
+* [Manipulating variables (columns) with `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/04-manipulate_variables_dplyr/index.html)
+* [Manipulating observations (rows) with `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/05-manipulate_observations_dplyr/index.html)
+* [Grouped operations using `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/06-grouped_operations_dplyr/index.html)
+* [Working with categorical data + Saving data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/07-categorical_variables/index.html)
 
 
 ### INT1.30
@@ -81,8 +66,10 @@ doing exploratory data analysis of transcriptomic data.
 
 In the lesson we will cover some new data manipulation tricks, which you can learn more about from here:
 
-* [Reshaping data](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html#reshaping_with_gather_and_spread)
-* [Combining tables](https://rawgit.com/bioinformatics-core-shared-training/r-intermediate/master/4.summarise-and-combine.nb.html#joining)
+* [Joining tables](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/08-joins/index.html)
+* [Reshaping data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/09-reshaping/index.html)
+
+<!--
 
 If you are using your own computer, you can access the data by running the following code from within R.
 Make sure you first create a directory for this lesson, e.g. "RNAseq" and then create and R-project inside it (from RStudio: `File` > `New Project...`). This is to ensure your working directory is setup correctly.
@@ -107,6 +94,7 @@ install.packages(c("corrplot", "ggfortify", "BiocManager"))
 BiocManager::install("ComplexHeatmap")
 ```
 
+-->
 
 ### INT1.33
 
@@ -139,12 +127,11 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 ## Further resources
 
 * [One page summary of functions](https://drive.google.com/file/d/1bo8vMXeeiRy8l89eIjOALezO3V5oaewY/view)
-* [Summary of R basics](https://tavareshugo.github.io/data_carpentry_extras/recap_intro_r/recap_intro_r.html)
 * [Summary of dplyr functions and their equivalent in base R](https://tavareshugo.github.io/data_carpentry_extras/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html)
 * [Cheatsheets for dplyr, ggplot2 and more](https://www.rstudio.com/resources/cheatsheets/)
     * [dplyr cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
     * [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-* [Data-to-Viz](https://www.data-to-viz.com/) website with great tips for choosing the right graphs for your data
+* [Data-to-Viz](https://www.data-to-viz.com/) website with great tips for choosing the right graphs for your data (along with R/Python code)
 
 
 Reference books:
@@ -152,7 +139,6 @@ Reference books:
 * Holmes S, Huber W, [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/) - covers many aspects of data analysis relevant for biology/bioinformatics from statistical modelling to image analysis.
 * Peng R, [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/) - an more general introduction to exploratory data analysis techniques.
 * Grolemund G & Wickham H, [R for Data Science](http://r4ds.had.co.nz/) - a good follow up from this course if you want to learn more about `tidyverse` packages.
-* McElreath R, [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) - an introduction to statistical modelling and inference using R (a more advanced topic, but written in an accessible way to non-statisticians).
-    * Also see the [lecture materials](https://github.com/rmcelreath/statrethinking_winter2019), which include access to the draft of the book's second edition. 
+* McElreath R, [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) - an introduction to statistical modelling and inference using R (a more advanced topic, but written in an accessible way to non-statisticians). Also see the [lecture materials](https://github.com/rmcelreath/statrethinking_winter2019).
 *  James G, Witten D, Hastie T & Tibshirani R, [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - an introductory book about machine learning using R (also advanced topic).
     * Also see [this course material](https://lgatto.github.io/IntroMachineLearningWithR/) for a practical introduction to this topic.

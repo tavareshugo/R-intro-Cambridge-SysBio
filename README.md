@@ -32,30 +32,14 @@ However, you are welcome to use your own laptop, in which case you need to:
 ----
 
 
-### INT1.23
+### INT1.23 / INT1.26
 
-This lesson will cover the basics of using R with RStudio. 
+These lessons will cover the basics of using R with RStudio. 
 
-Detailed reference materials:
-
-* [Introduction to R and RStudio](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/00-starting_your_project/index.html)
-* [Basic objects and data types](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/01-objects_functions_vectors/index.html)
-* [Working with Tabular Data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/02-data_frames/index.html)
-* [Data visualisation with `ggplot2`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/03-data_vis_ggplot2/index.html)
+* [Introduction to R/tidyverse for Data Analysis](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/index.html)
 
 
-### INT1.26
-
-This lesson will cover some functions to effectively manipulate and summarise 
-tabular data using the `dplyr` package.
-
-* [Manipulating variables (columns) with `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/04-manipulate_variables_dplyr/index.html)
-* [Manipulating observations (rows) with `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/05-manipulate_observations_dplyr/index.html)
-* [Grouped operations using `dplyr`](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/06-grouped_operations_dplyr/index.html)
-* [Working with categorical data + Saving data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/07-categorical_variables/index.html)
-
-
-### INT1.30
+### INT1.30 / INT1.33
 
 In this session we will apply the concepts learned so far to a worked example of 
 doing exploratory data analysis of transcriptomic data.
@@ -64,10 +48,6 @@ doing exploratory data analysis of transcriptomic data.
 
 [exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
 
-In the lesson we will cover some new data manipulation tricks, which you can learn more about from here:
-
-* [Joining tables](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/08-joins/index.html)
-* [Reshaping data](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/09-reshaping/index.html)
 
 <!--
 
@@ -95,14 +75,6 @@ BiocManager::install("ComplexHeatmap")
 ```
 
 -->
-
-### INT1.33
-
-We will continue from the previous lesson, covering some methods for analysis of multi-dimensional data:
-
-* [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
-
-[exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
 
 
 <!--

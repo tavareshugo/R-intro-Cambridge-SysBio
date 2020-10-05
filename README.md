@@ -18,16 +18,28 @@ on our GitHub repository.
 
 **Setup**
 
+<!--
 All necessary software and data will be available on the training machines at 
 the Bioinformatics Training Room 
 ([Craik-Marshall Building](https://maps.google.co.uk/maps?hl=en-GB&q=Craik-Marshall+Building,+Downing+Site,+Cambridge&source=calendar)).
 
 However, you are welcome to use your own laptop, in which case you need to:
+--> 
+
+Our sessions will be running live online. 
+**Please check your email for details of how to access the course environment.**
+
+- The lesson will run via zoom ([link](https://us02web.zoom.us/j/86850842355?pwd=VlJoK2dMYlRvUDExdDkyejlaSjJKZz09))
+- We will use a shared GDoc for you to post questions and share other bits of information ([link](https://docs.google.com/document/d/1CzHh9Pf92IIFEDVLg58ZRClUFeDAOUrIAkmr8DVFDBk))
+- We will use a virtual R environment that you can access from your internet browser. You will receive the details for login by email.
+
+Please use the virtual R environment during the course. 
+However, to setup R on your own computer (to use after the course):
 
 * Download and install R ([here](https://cran.r-project.org/))
 * Download and install RStudio ([here](https://www.rstudio.com/products/rstudio/download/#download))
-* Open RStudio and go to `Tools > Install Packages` and paste this into the "Packages" field: `tidyverse,naniar,broom,corrplot,patchwork,ggfortify` 
-* Download the data for the lesson ([here - FIXME]())
+* Open RStudio and go to `Tools > Install Packages` and paste this into the "Packages" field: `tidyverse,naniar,broom,corrplot,patchwork,ggfortify`
+
 
 ----
 

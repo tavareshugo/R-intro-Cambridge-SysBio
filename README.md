@@ -11,7 +11,7 @@ Below, we provide links to detailed materials for your reference, many of
 which were developed by the [Data Carpentry](https://datacarpentry.org) organisation.
 
 If you have any queries please contact Hugo Tavares (<hugo.tavares@slcu.cam.ac.uk>) 
- or [post an issue](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/issues) 
+ or [post an issue](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/issues)
 on our GitHub repository.
 
 ----
@@ -29,8 +29,10 @@ However, you are welcome to use your own laptop, in which case you need to:
 Our sessions will be running live online. 
 **Please check your email for details of how to access the course environment.**
 
-- The lesson will run via zoom ([link](https://us02web.zoom.us/j/86850842355?pwd=VlJoK2dMYlRvUDExdDkyejlaSjJKZz09))
-- We will use a shared GDoc for you to post questions and share other bits of information ([link](https://docs.google.com/document/d/1CzHh9Pf92IIFEDVLg58ZRClUFeDAOUrIAkmr8DVFDBk))
+- The lesson will run via zoom 
+(<a href="https://us02web.zoom.us/j/86850842355?pwd=VlJoK2dMYlRvUDExdDkyejlaSjJKZz09" target="_blank">link</a>)
+- We will use a shared GDoc for you to post questions and share other bits of information
+(<a href="https://docs.google.com/document/d/1CzHh9Pf92IIFEDVLg58ZRClUFeDAOUrIAkmr8DVFDBk" target="_blank">link</a>)
 - We will use a virtual R environment that you can access from your internet browser. You will receive the details for login by email.
 
 Please use the virtual R environment during the course. 
@@ -48,7 +50,7 @@ However, to setup R on your own computer (to use after the course):
 
 These lessons will cover the basics of using R with RStudio. 
 
-* [Introduction to R/tidyverse for Data Analysis](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/index.html)
+* <a href="https://tavareshugo.github.io/r-intro-tidyverse-gapminder/index.html" target="_blank">Introduction to R/tidyverse for Data Analysis</a>
 
 
 ### INT1.30 / INT1.33
@@ -56,9 +58,9 @@ These lessons will cover the basics of using R with RStudio.
 In this session we will apply the concepts learned so far to a worked example of 
 doing exploratory data analysis of transcriptomic data.
 
-* [Exploratory analysis of gene expression data](https://tavareshugo.github.io/data-carpentry-rnaseq/)
+* <a href="https://tavareshugo.github.io/data-carpentry-rnaseq/" target="_blank">Exploratory analysis of gene expression data</a>
 
-[exercises](https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html)
+<a href="https://tavareshugo.github.io/data-carpentry-rnaseq/00_exercises.html" target="_blank">exercises</a>
 
 
 <!--

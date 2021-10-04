@@ -26,7 +26,7 @@ However, you are welcome to use your own laptop, in which case you need to:
 
 * Download and install R ([here](https://cran.r-project.org/))
 * Download and install RStudio ([here](https://www.rstudio.com/products/rstudio/download/#download))
-* Open RStudio and go to `Tools > Install Packages` and paste this into the "Packages" field: `tidyverse,naniar,broom,corrplot,patchwork,ggfortify`
+* Open RStudio and go to `Tools > Install Packages` and paste this into the "Packages" field: `tidyverse`
 
 <!--
 Our sessions will be running live online. 

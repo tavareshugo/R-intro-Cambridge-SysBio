@@ -7,9 +7,6 @@ to allow you to do data analysis in R, from data manipulation to visualisation.
 We will focus on tabular data, which is general enough to allow you to apply 
 these skills to a wide range of problems. 
 
-Below, we provide links to detailed materials for your reference, many of 
-which were developed by the [Data Carpentry](https://datacarpentry.org) organisation.
-
 If you have any queries please contact Hugo Tavares (<hugo.tavares@slcu.cam.ac.uk>) 
  or [post an issue](https://github.com/tavareshugo/R-intro-Cambridge-SysBio/issues)
 on our GitHub repository.
@@ -98,3 +95,10 @@ Reference books:
 * Barabási A, [Network Science](https://networksciencebook.com/) - an introduction to network analysis (it's a general book, not focused on R. But see the [igraph](https://igraph.org/r/) package).
 * James G, Witten D, Hastie T & Tibshirani R, [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - an introductory book about machine learning using R (also advanced topic).
     * Also see [this course material](https://lgatto.github.io/IntroMachineLearningWithR/) for a practical introduction to this topic.
+* Lovelace R, Nowosad J, Muenchow J, [Geocomputation with R](https://geocompr.robinlovelace.net/) - using R for visualisation and analysis of spatial data. 
+
+----
+
+**Acknowledgements**
+
+Many of these materials were inspired/developed by the [Data Carpentry](https://datacarpentry.org) organisation.

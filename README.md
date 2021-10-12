@@ -55,7 +55,7 @@ These lessons will cover the basics of using R with RStudio.
 
 ### INT1.33
 
-Under development
+* <a href="https://tavareshugo.github.io/data_carpentry_extras/data_structures_functions_loops/data_structures_functions_loops.html" target="_blank">Data Structures, Functions and Loops</a>
 
 <!--
 - Detail object types and how they relate to each other. See: http://adv-r.had.co.nz/Data-structures.html and https://r4ds.had.co.nz/vectors.html

@@ -57,6 +57,9 @@ These lessons will cover the basics of using R with RStudio.
 
 * <a href="https://tavareshugo.github.io/data_carpentry_extras/data_structures_functions_loops/data_structures_functions_loops.html" target="_blank">Data Structures, Functions and Loops</a>
 
+* **Extra materials:** * <a href="https://tavareshugo.github.io/data-carpentry-rnaseq/" target="_blank">Exploratory analysis of gene expression data</a> (these materials illustrate many of the functions we covered in this course, using a different dataset relevant for bioinformatic applications)
+
+
 <!--
 - Detail object types and how they relate to each other. See: http://adv-r.had.co.nz/Data-structures.html and https://r4ds.had.co.nz/vectors.html
     - atomic vector (aka vector), list (recursive vector), matrix (vector with 2 dims), data.frame (list of equal-length vectors), array (vector with n dims) - and how they relate to each other. 

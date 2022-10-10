@@ -57,9 +57,6 @@ These lessons will cover the basics of using R with RStudio.
 
 * <a href="https://tavareshugo.github.io/data_carpentry_extras/data_structures_functions_loops/data_structures_functions_loops.html" target="_blank">Data Structures, Functions and Loops</a>
 
-* **Extra materials:** * <a href="https://tavareshugo.github.io/data-carpentry-rnaseq/" target="_blank">Exploratory analysis of gene expression data</a> (these materials illustrate many of the functions we covered in this course, using a different dataset relevant for bioinformatic applications)
-
-
 <!--
 - Detail object types and how they relate to each other. See: http://adv-r.had.co.nz/Data-structures.html and https://r4ds.had.co.nz/vectors.html
     - atomic vector (aka vector), list (recursive vector), matrix (vector with 2 dims), data.frame (list of equal-length vectors), array (vector with n dims) - and how they relate to each other. 
@@ -81,6 +78,7 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 
 ## Further resources
 
+* **Extra materials:** <a href="https://tavareshugo.github.io/data-carpentry-rnaseq/" target="_blank">Exploratory analysis of gene expression data</a> (these materials illustrate many of the functions we covered in this course, using a different dataset relevant for bioinformatic applications)
 * [One page summary of functions](https://drive.google.com/file/d/1bo8vMXeeiRy8l89eIjOALezO3V5oaewY/view)
 * [Summary of dplyr functions and their equivalent in base R](https://tavareshugo.github.io/data_carpentry_extras/base-r_tidyverse_equivalents/base-r_tidyverse_equivalents.html)
 * [Cheatsheets for dplyr, ggplot2 and more](https://www.rstudio.com/resources/cheatsheets/)
@@ -89,7 +87,7 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 * [Data-to-Viz](https://www.data-to-viz.com/) website with great tips for choosing the right graphs for your data (along with R/Python code)
 
 
-Reference books:
+#### Reference Books
 
 * Holmes S, Huber W, [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/) - covers many aspects of data analysis relevant for biology/bioinformatics from statistical modelling to image analysis.
 * Peng R, [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/) - an more general introduction to exploratory data analysis techniques.
@@ -100,8 +98,24 @@ Reference books:
     * Also see [this course material](https://lgatto.github.io/IntroMachineLearningWithR/) for a practical introduction to this topic.
 * Lovelace R, Nowosad J, Muenchow J, [Geocomputation with R](https://geocompr.robinlovelace.net/) - using R for visualisation and analysis of spatial data. 
 
+
+#### Other Languages and Packages
+
+* For fast data frame manipulation and calculations, especially for **very large data** (millions of observations) see the [`data.table`](https://rdatatable.gitlab.io/data.table/) package. 
+* For **bioinformatic** applications, see the [Bioconductor](http://bioconductor.org/) repository - these packages typically have excellent documentation in the form of vignetes. 
+* For data analysis in **Python**:
+  * Some of the equivalent functionality of base R to manipulate data can be achieved in python using a combination of these packages: [`pandas`](https://pandas.pydata.org/) (data frames),  [`matplotlib`](https://matplotlib.org/) (plotting), [`numpy`](https://numpy.org/) (matrix/arrays)
+  * For a `ggplot2`-like package see [`plotnine`](https://plotnine.readthedocs.io/en/stable/)
+  * For a `dplyr`-like package see [`siuba`](https://siuba.readthedocs.io/en/latest/)
+  * For high-performant data frame operations see [`datatable`](https://datatable.readthedocs.io/en/latest/)
+
+#### Other Topics
+
+* [Version Control with Git](https://swcarpentry.github.io/git-novice/) (Software Carpentry course)
+* [The Unix Shell](https://cambiotraining.github.io/unix-shell/)
+
 ----
 
-**Acknowledgements**
+#### Acknowledgements
 
 Many of these materials were inspired/developed by the [Data Carpentry](https://datacarpentry.org) organisation.

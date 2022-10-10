@@ -102,7 +102,7 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 #### Other Languages and Packages
 
 * For fast data frame manipulation and calculations, especially for **very large data** (millions of observations) see the [`data.table`](https://rdatatable.gitlab.io/data.table/) package. 
-* For **bioinformatic** applications, see the [Bioconductor](http://bioconductor.org/) repository - these packages typically have excellent documentation in the form of vignetes. 
+* For **bioinformatic** applications, see the [Bioconductor](http://bioconductor.org/) repository - these packages typically have excellent documentation in the form of vignetes. See [these materials](https://carpentries-incubator.github.io/bioc-project/) for an overview of the Bioconductor project. 
 * For data analysis in **Python**:
   * Some of the equivalent functionality of base R to manipulate data can be achieved in python using a combination of these packages: [`pandas`](https://pandas.pydata.org/) (data frames),  [`matplotlib`](https://matplotlib.org/) (plotting), [`numpy`](https://numpy.org/) (matrix/arrays)
   * For a `ggplot2`-like package see [`plotnine`](https://plotnine.readthedocs.io/en/stable/)

@@ -92,6 +92,7 @@ in the previous lessons, as well as a few new tricks to automate tasks in R.
 * Holmes S, Huber W, [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/) - covers many aspects of data analysis relevant for biology/bioinformatics from statistical modelling to image analysis.
 * Peng R, [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/) - an more general introduction to exploratory data analysis techniques.
 * Grolemund G & Wickham H, [R for Data Science](http://r4ds.had.co.nz/) - a good follow up from this course if you want to learn more about `tidyverse` packages.
+* Wickham H, [Advanced R](https://adv-r.hadley.nz/oo.html) - more advanced topics in how R works internally, how object-oriented programming works, etc. 
 * McElreath R, [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/) - an introduction to statistical modelling and inference using R (a more advanced topic, but written in an accessible way to non-statisticians). Also see the [lecture materials](https://github.com/rmcelreath/statrethinking_winter2019).
 * Barabási A, [Network Science](https://networksciencebook.com/) - an introduction to network analysis (it's a general book, not focused on R. But see the [igraph](https://igraph.org/r/) package).
 * James G, Witten D, Hastie T & Tibshirani R, [Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/) - an introductory book about machine learning using R (also advanced topic).
